@@ -303,3 +303,8 @@
 0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:28:18 +0800] "GET /Project_Management/index.jsp HTTP/1.1" 200 28120 http-bio-8088-exec-3 14
 0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:28:18 +0800] "GET /image/5.jpg HTTP/1.1" 404 - http-bio-8088-exec-3 0
 0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:28:18 +0800] "GET /image/5.jpg HTTP/1.1" 404 - http-bio-8088-exec-3 0
+0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:30:41 +0800] "GET /Project_Management/pages/extra-login.jsp HTTP/1.1" 200 4879 http-bio-8088-exec-1 524
+0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:30:43 +0800] "GET /Project_Management/pages/extra-login.jsp HTTP/1.1" 200 4879 http-bio-8088-exec-2 11
+0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:30:54 +0800] "POST /Project_Management/pages/userAction_doLogin HTTP/1.1" 302 - http-bio-8088-exec-6 846
+0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:30:55 +0800] "GET /Project_Management/index.jsp HTTP/1.1" 200 27234 http-bio-8088-exec-7 158
+0:0:0:0:0:0:0:1 - - [21/Jan/2018:20:30:55 +0800] "GET /image/5.jpg HTTP/1.1" 404 - http-bio-8088-exec-8 0
