@@ -25,7 +25,7 @@ public class Advices {
 	//后置通知
 	@AfterReturning(value="execution(* com.ssh.service..*.*(..))",returning="obj")
 	public void afterReturnMethod(JoinPoint point,Object obj){
-		System.out.println(point.getSignature().getName()+"方法准备完毕,返回结果是:"+obj);
+		System.out.println(point.getSignature().getName()+"方法准备完毕,返回结果是:"+obj.toString());
 	}
 
 	//最终通知
