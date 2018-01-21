@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 设置系统参数 -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="item" extends="json-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 项目信息Action -->
+		<action name="itemAction_*" method="{1}" class="itemAction">
+			<result name="product" type="json">
+				<param name="includeProperties">plist.*</param>
+			</result>
+			<result name="customer" type="json">
+				<param name="includeProperties">clist.*</param>
+			</result>
+			<result name="research" type="json">
+				<param name="includeProperties">rlist.*</param>
+			</result>
+			<result name="business" type="json">
+				<param name="includeProperties">slist.*</param>
+			</result>
+			<result name="input">/pages/extra-login.jsp</result>
+			<result name="addItem" type="redirect">/pages/addItem.jsp?msg=${msg}</result>
+			<result name="selectAllItem">/pages/itemList.jsp</result>
+			<result name="selectByIdItem">/pages/updateItem.jsp</result>
+			<result name="updateItem" type="redirectAction">itemAction_selectAllItem?pageBean.cpage=1
+			</result>
+			<result name="deleteItem" type="redirectAction">itemAction_selectAllItem?pageBean.cpage=1
+			</result>
+            <result name="downLoadExcel" type="redirectAction">itemAction_selectAllItem?pageBean.cpage=1</result>
+		</action>
+	</package>
+</struts>

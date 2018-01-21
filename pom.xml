@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ssh</groupId>
+  <artifactId>Project_Management</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Project_Management Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 统一各个框架版本 -->
+    <struts.version>2.5.10</struts.version>
+    <spring.version>4.3.8.RELEASE</spring.version>
+    <hibernate.version>5.1.7.Final</hibernate.version>
+    <servlet.version>3.1.0</servlet.version>
+    <jsp.version>2.0</jsp.version>
+    <jstl.version>1.2</jstl.version>
+    <junit.version>4.2</junit.version>
+    <aspectj.version>1.8.10</aspectj.version>
+    <mysql.version>5.1.44</mysql.version>
+    <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+    <commons-fileupload.version>1.3.1</commons-fileupload.version>
+    <c3p0.version>0.9.5</c3p0.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <aspectj.version>1.5.4</aspectj.version>
+    <poi.version>3.17</poi.version>
+    <poi-ooxml.version>3.6</poi-ooxml.version>
+  </properties>
+
+  <!--依赖管理-->
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!--Servlet API依赖-->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <!--JSP API依赖-->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jsp-api</artifactId>
+        <version>${jsp.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <!--Spring核心依赖-->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <!-- Spring web依赖 -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <!-- aspectjrt依赖 -->
+      <dependency>
+        <groupId>aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>${aspectj.version}</version>
+      </dependency>
+      <!-- Spring整合ORM框架依赖 -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <!-- AspectJ依赖 -->
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>${aspectj.version}</version>
+      </dependency>
+      <!--Struts核心依赖-->
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>${struts.version}</version>
+      </dependency>
+      <!-- 整合json插件 -->
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-json-plugin</artifactId>
+        <version>${struts.version}</version>
+      </dependency>
+      <!-- Struts2和Spring整合依赖 -->
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-spring-plugin</artifactId>
+        <version>${struts.version}</version>
+      </dependency>
+      <!--Hibernate核心依赖-->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+      </dependency>
+      <!--C3P0数据库连接池-->
+      <dependency>
+        <groupId>com.mchange</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>${c3p0.version}</version>
+      </dependency>
+      <!--MySQL数据库驱动包-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+      <!--JSR303 Java Bean服务端校验-->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${hibernate-validator.version}</version>
+      </dependency>
+      <!-- commons-fileupload文件上传依赖包 -->
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>${commons-fileupload.version}</version>
+      </dependency>
+      <!-- jstl依赖包 -->
+      <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${jstl.version}</version>
+      </dependency>
+      <!-- SLF4J依赖 -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <!--poi依赖-->
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${poi-ooxml.version}</version>
+      </dependency>
+    </dependencies>
+
+  <!-- 设置公共插件 -->
+  <build>
+    <finalName>stusystem</finalName>
+    <plugins>
+      <!-- compiler插件, 设定JDK版本 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+      <!-- 配置Tomcat插件 -->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <port>8088</port>
+          <path>/Project_Management</path>
+          <uriEncoding>${project.build.sourceEncoding}</uriEncoding>
+          <finalName>Management_system</finalName>
+          <server>tomcat7</server>
+        </configuration>
+      </plugin>
+
+      <!-- war打包插件 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <warName>${project.build.finalName}</warName>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

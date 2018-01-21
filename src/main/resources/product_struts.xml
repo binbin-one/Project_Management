@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 设置Action -->
+	<package name="product" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 客户信息Action -->
+		<action name="productAction_*" method="{1}" class="productAction">
+			<result name="input">/pages/extra-login.jsp</result>
+			<result name="addProduct" type="redirect">/pages/addProduct.jsp?msg=${msg}</result>
+			<result name="selectByIdProduct">/pages/updateProduct.jsp</result>
+			<result name="updateProduct" type="redirectAction">productAction_selectAllProduct?pageBean.cpage=1</result>
+			<result name="deleteProduct" type="redirectAction">productAction_selectAllProduct?pageBean.cpage=1</result>
+			<result name="selectAllProduct">/pages/productList.jsp</result>
+		</action>
+	</package>
+</struts>

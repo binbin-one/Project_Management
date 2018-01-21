@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 设置Action -->
+	<package name="customer" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 客户信息Action -->
+		<action name="customerAction_*" method="{1}" class="customerAction">
+			<result name="addCustomer" type="redirect">/pages/addCustomer.jsp?msg=${msg}</result>
+			<result name="selectByIdCustomer">/pages/updateCustomer.jsp</result>
+			<result name="updateCustomer" type="redirectAction">customerAction_selectAllCustomer?pageBean.cpage=1</result>
+			<result name="selectAllCustomer">/pages/customerList.jsp</result>
+			<result name="deleteCustomer" type="redirectAction">customerAction_selectAllCustomer?pageBean.cpage=1</result>
+		</action>
+	</package>
+</struts>

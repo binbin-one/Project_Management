@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 设置Action -->
+	<package name="users" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 用户信息Action -->
+		<action name="userAction_*" method="{1}" class="userAction">
+			<result name="input">/pages/extra-login.jsp</result>
+			<result name="addUser" type="redirect">/pages/addUser.jsp?msg=${msg}</result>
+			<result name="main" type="redirect">/index.jsp</result>
+			<result name="selectByIdUsers">/pages/updateUser.jsp</result>
+			<result name="updateUser" type="redirect">/pages/updateUser.jsp?msg=${msg}</result>
+			<result name="selectAllUser">/pages/userList.jsp</result>
+			<result name="deleteUsers" type="redirectAction">userAction_selectAllUser?pageBean.cpage=1</result>
+		</action>
+	</package>
+</struts>

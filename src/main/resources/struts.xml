@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<!-- 设置系统参数 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.action.extension" value="action,do,,"/>
+	<!-- 设置struts UI主题风格 -->
+	<constant name="struts.ui.theme" value="simple"/>
+
+	<!-- 设置Action -->
+	<package name="com" extends="json-default">
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.ssh.web.LoginInterceptor"/>
+			<interceptor-stack name="myLoginStack">
+				<interceptor-ref name="loginInterceptor">
+					<param name="excludeMethods">doLogin,addUser</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 配置全局异常处理 -->
+		<global-results>
+			<result name="login">/pages/extra-login.jsp</result>
+			<result name="notfound">/fileNotFound.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<global-exception-mappings>
+			<exception-mapping result="notfound" exception="java.lang.NullPointerException"/>
+		</global-exception-mappings>
+	</package>
+	<!-- 引入配置文件 -->
+	<include file="user_struts.xml"></include>
+	<include file="customer_struts.xml"></include>
+	<include file="product_struts.xml"></include>
+	<include file="item_struts.xml"></include>
+</struts>
