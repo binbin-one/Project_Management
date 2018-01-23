@@ -10,7 +10,6 @@ import com.ssh.entity.Customer;
 import com.ssh.entity.Item;
 import com.ssh.entity.Product;
 import com.ssh.entity.Users;
-import com.ssh.service.impl.ItemServiceImpl;
 import com.ssh.util.PageBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
