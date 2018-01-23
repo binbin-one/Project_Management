@@ -28,8 +28,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/xenon-skins.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pager.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css.css">
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/pager.js"></script>
+    <script src="${pageContext.request.contextPath}/js/js.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -882,7 +884,7 @@
             <ul class="user-info-menu right-links list-inline list-unstyled">
                 <li class="dropdown user-profile">
                     <a href="#" data-toggle="dropdown">
-                        <img src="${loginUser.uploadImage}" width="30" height="35"/>
+                        <img src="${pageContext.request.contextPath}/${loginUser.uploadImage}" width="30" height="35"/>
                         <span>
                             <span style="font-size: 18px">${loginUser.uname}</span>
                             <s:if test="#session.loginUser.utype==1">
@@ -932,7 +934,32 @@
                 </ol>
             </div>
         </div>
-
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".area").hover(function(){
+                        $(this).find(".qq").show(100);}
+                    ,function(){
+                        $(this).find(".qq").hide(100);
+                    });
+            });
+        </script>
+        <div class="area">
+            <a id=prev class="prevBtn qq" href="javascript:void(0)"></a>
+            <a id=next class="nextBtn qq" href="javascript:void(0)"></a>
+            <div id=js class="js">
+                <div class="box01">
+                    <img src="${pageContext.request.contextPath}/image/01.jpg">
+                    <img style="DISPLAY: none" src="${pageContext.request.contextPath}/image/02.jpg">
+                    <img style="DISPLAY: none"  src="${pageContext.request.contextPath}/image/03.jpg">
+                </div>
+                <div class="bg"></div>
+                <div id=jsNav class=jsNav>
+                    <a class="trigger imgSelected" href="javascript:void(0)">1</a>
+                    <a class="trigger" href="javascript:void(0)">2</a>
+                    <a class="trigger" href="javascript:void(0)">3</a>
+                </div>
+            </div>
+        </div>
         <!-- Main Footer -->
         <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
         <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->

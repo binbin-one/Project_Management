@@ -79,6 +79,7 @@
             <ul id="main-menu" class="main-menu">
                 <!-- add class "multiple-expanded" to allow multiple submenus to open -->
                 <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+                <s:if test="#session.loginUser.utype==3">
                 <li>
                     <a href="dashboard-1.html">
                         <i class="linecons-cog"></i>
@@ -97,6 +98,8 @@
                         </li>
                     </ul>
                 </li>
+                </s:if>
+                <s:if test="#session.loginUser.utype==1">
                 <li>
                     <a href="layout-variants.html">
                         <i class="linecons-desktop"></i>
@@ -115,6 +118,8 @@
                         </li>
                     </ul>
                 </li>
+                </s:if>
+                <s:if test="#session.loginUser.utype==2">
                 <li>
                     <a href="ui-panels.html">
                         <i class="linecons-note"></i>
@@ -152,6 +157,7 @@
                         </li>
                     </ul>
                 </li>
+                </s:if>
                 <li>
                     <a href="${pageContext.request.contextPath}/pages/extra-login.jsp">
                         <i class="linecons-star"></i>
