@@ -870,7 +870,6 @@
 
             <div class="footer-inner">
 
-                <!-- Add your copyright text here -->
                 <div class="footer-text">
                     &copy; 2017
                     <strong>权限</strong>
