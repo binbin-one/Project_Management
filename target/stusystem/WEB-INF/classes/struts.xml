@@ -12,16 +12,21 @@
 
 	<!-- 设置Action -->
 	<package name="com" extends="json-default">
-		<!-- 配置拦截器 -->
+		<!-- 声明拦截器 -->
 		<interceptors>
+			<!-- 配置自定义拦截器 -->
+			<interceptor name="logInterceptor" class="com.ssh.interceptor.LogInterceptor"/>
 			<interceptor name="loginInterceptor" class="com.ssh.interceptor.LoginInterceptor"/>
-			<interceptor-stack name="myLoginStack">
-				<interceptor-ref name="loginInterceptor">
+			<!-- 定义拦截器栈 -->
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="loginInterceptor"/>
+				<interceptor-ref name="logInterceptor">
 					<param name="excludeMethods">doLogin,addUser</param>
 				</interceptor-ref>
-				<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
 		</interceptors>
+
 		<!-- 配置全局异常处理 -->
 		<global-results>
 			<result name="login">/pages/extra-login.jsp</result>

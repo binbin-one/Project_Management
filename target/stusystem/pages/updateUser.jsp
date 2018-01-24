@@ -831,7 +831,7 @@
             </s:elseif>
         </div>
         <form role="form" action="userAction_updateUsers" enctype="multipart/form-data" onsubmit="return test()">
-            <input type="hidden" name="user.uno"/>
+            <s:hidden name="user.uno" id="id"/>
             <div class="form-group">
                 <label name="user.uname">用户名<span id="span1" style="display: none"></span></label>
                 <s:textfield name="user.uname" class="form-control input-dark" id="username" autocomplete="off" style="width:300px"/><br/>
@@ -851,10 +851,10 @@
             <label class="control-label" name="user.utype" style="color: #979898;">用户类型</label>
             <s:radio list="#{'1':'研发人员','2':'业务人员','3':'管理人员'}" name="user.utype" style="color:#979898"/><br/>
 
-            <label class="control-label" name="uploadImage" style="margin-top: 0px">用户图像</label>
+            <label class="control-label" name="user.uploadImage" style="margin-top: 0px">用户图像</label>
             <img alt="" src="${pageContext.request.contextPath}/${user.uploadImage }" width="30" height="30"><br/>
-            <s:file name="uploadImage"/><br/>
-
+            <s:hidden name="user.uploadImage"/>
+            <s:file name="uploadImage" id="ufile"/><br/>
             <div class="form-group">
                 <label name="user.uremark">备注<span id="span5" style="display: none"></span></label>
                 <s:textarea name="user.uremark" cols="30" rows="5" class="form-control input-dark" id="uremark" autocomplete="off" style="width:300px"/><br/>

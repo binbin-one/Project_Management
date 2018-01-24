@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 处理用户相关请求的Action
@@ -32,8 +34,10 @@ public class UserAction extends ActionSupport{
 	private String uploadImageFileName; //得到文件的名称
 	@Resource(name="userService")
 	private IUserService userService;
+	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	//处理登录操作方法
 	public String doLogin(){
+		System.out.println("[日志]UserAction执行addLogin方法,"+sdf.format(new Date()));
 		//调用服务层方法执行登录操作
 		Users u=userService.doLogin(user.getUname(),user.getUpwd());
 		if(u!=null){
@@ -48,6 +52,7 @@ public class UserAction extends ActionSupport{
 	//添加用户方法
 	public String addUser(){
         uploadImge();
+		System.out.println("[日志]UserAction执行addUser方法,"+sdf.format(new Date()));
 		if (userService.addUsers(user)) {
 			msg = "success";
 		} else {
@@ -58,6 +63,7 @@ public class UserAction extends ActionSupport{
 
 	//查询指定用户
 	public String selectByIdUsers() {
+		System.out.println("[日志]UserAction执行selectByIdUsers方法,"+sdf.format(new Date()));
 		user = (Users) userService.selectByIdUsers(user);
 		return "selectByIdUsers";
 	}
@@ -65,6 +71,7 @@ public class UserAction extends ActionSupport{
 	//分页查询
 	public String selectAllUser(){
 		//调用服务层方法查询
+		System.out.println("[日志]UserAction执行selectAllUser方法,"+sdf.format(new Date()));
 		pageBean =  userService.selectAllUsers(pageBean,querys);
 		return "selectAllUser";
 	}
@@ -72,6 +79,7 @@ public class UserAction extends ActionSupport{
 	//修改用户
 	public String updateUsers(){
         uploadImge();
+		System.out.println("[日志]UserAction执行updateUser方法,"+sdf.format(new Date()));
 		if(userService.updateUsers(user)){
 			msg="success";
 		}else{
@@ -82,6 +90,7 @@ public class UserAction extends ActionSupport{
 
 	//删除用户
 	public String deleteUsers() {
+		System.out.println("[日志]UserAction执行deleteStu方法,"+sdf.format(new Date()));
 		if (userService.deleteUsers(user)) {
 			msg = "success";
 		} else {

@@ -15,6 +15,8 @@
 			<result name="updateUser" type="redirect">/pages/updateUser.jsp?msg=${msg}</result>
 			<result name="selectAllUser">/pages/userList.jsp</result>
 			<result name="deleteUsers" type="redirectAction">userAction_selectAllUser?pageBean.cpage=1</result>
+			<!-- 加入拦截器栈 -->
+			<interceptor-ref name="users"/>
 		</action>
 	</package>
 </struts>
