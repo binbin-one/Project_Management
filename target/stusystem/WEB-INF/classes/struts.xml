@@ -14,7 +14,7 @@
 	<package name="com" extends="json-default">
 		<!-- 配置拦截器 -->
 		<interceptors>
-			<interceptor name="loginInterceptor" class="com.ssh.web.LoginInterceptor"/>
+			<interceptor name="loginInterceptor" class="com.ssh.interceptor.LoginInterceptor"/>
 			<interceptor-stack name="myLoginStack">
 				<interceptor-ref name="loginInterceptor">
 					<param name="excludeMethods">doLogin,addUser</param>

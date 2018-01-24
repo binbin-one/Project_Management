@@ -836,7 +836,7 @@
                 <p style="color:#979898">新增失败!</p>
             </s:elseif>
         </div>
-        <form method="post"  action="productAction_addProduct" enctype="multipart/form-data" onsubmit="return test()">
+        <form method="post"  action="productAction_addProduct" onsubmit="return test()">
             <div class="form-group">
                 <label name="product.cname">产品名称<span id="span1" style="display: none"></span></label>
                 <input type="text" class="form-control" name="product.cname" id="cname" placeholder="请输入产品名称" style="width: 300px">
@@ -866,11 +866,6 @@
             <button type="submit" class="btn btn-default">新增产品</button>
         </form>
 
-        <!-- Main Footer -->
-        <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
-        <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
-        <!-- Or class "fixed" to  always fix the footer to the end of page -->
-
         <footer class="main-footer sticky footer-type-1">
 
             <div class="footer-inner">
@@ -884,36 +879,24 @@
 
                 <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
                 <div class="go-up">
-
                     <a href="#" rel="go-top">
                         <i class="fa-angle-up"></i>
                     </a>
-
                 </div>
-
             </div>
-
         </footer>
     </div>
 
-
-    <!-- start: Chat Section -->
     <div id="chat" class="fixed">
-
         <div class="chat-inner">
-
-
             <h2 class="chat-header">
                 <a href="#" class="chat-close" data-toggle="chat">
                     <i class="fa-plus-circle rotate-45deg"></i>
                 </a>
-
-                Chat
                 <span class="badge badge-success is-hidden">0</span>
             </h2>
 
             <script type="text/javascript">
-                // Here is just a sample how to open chat conversation box
                 jQuery(document).ready(function($)
                 {
                     var $chat_conversation = $(".chat-conversation");
@@ -921,9 +904,7 @@
                     $(".chat-group a").on('click', function(ev)
                     {
                         ev.preventDefault();
-
                         $chat_conversation.toggleClass('is-open');
-
                         $(".chat-conversation textarea").trigger('autosize.resize').focus();
                     });
 

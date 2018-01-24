@@ -853,7 +853,8 @@
 
             <label class="control-label" name="uploadImage" style="margin-top: 0px">用户图像</label>
             <img alt="" src="${pageContext.request.contextPath}/${user.uploadImage }" width="30" height="30"><br/>
-            <input type="file" name="uploadImage" id="ufile"/>
+            <s:file name="uploadImage"/><br/>
+
             <div class="form-group">
                 <label name="user.uremark">备注<span id="span5" style="display: none"></span></label>
                 <s:textarea name="user.uremark" cols="30" rows="5" class="form-control input-dark" id="uremark" autocomplete="off" style="width:300px"/><br/>

@@ -9,8 +9,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
 
@@ -47,7 +47,7 @@ public class UserAction extends ActionSupport{
 
 	//添加用户方法
 	public String addUser(){
-		UploadImage();
+        uploadImge();
 		if (userService.addUsers(user)) {
 			msg = "success";
 		} else {
@@ -71,7 +71,7 @@ public class UserAction extends ActionSupport{
 
 	//修改用户
 	public String updateUsers(){
-		UploadImage();
+        uploadImge();
 		if(userService.updateUsers(user)){
 			msg="success";
 		}else{
@@ -89,9 +89,23 @@ public class UserAction extends ActionSupport{
 		}
 		return "deleteUsers";
 	}
+    private void uploadImge(){
+        if(uploadImage!=null&&uploadImageFileName!=null){
+            ServletContext ctx=ServletActionContext.getServletContext();
+            String path=ctx.getRealPath("/image");
+            String filePath=path+"/"+uploadImageFileName;//获取文件要上传的路径
+            try {
+                FileUtils.copyFile(uploadImage, new File(filePath));//执行上传
+                //记录文件路径
+                user.setUploadImage("image/"+uploadImageFileName);//记录图片路径
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
+        }
+    }
 	//文件上传
-	public void UploadImage(){
+	/*public void UploadImage(){
 		System.out.println("fileName:"+this.getUploadImageFileName());
 		System.out.println("contentType:"+this.getUploadImageContentType());
 		System.out.println("File:"+this.getUploadImage());
@@ -110,7 +124,7 @@ public class UserAction extends ActionSupport{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	public Users getUser() {
 		return user;
